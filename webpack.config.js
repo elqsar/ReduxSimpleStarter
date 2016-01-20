@@ -1,16 +1,19 @@
+const webpack = require('webpack');
+
 module.exports = {
-  entry: [
-    './src/index.js'
-  ],
+  entry: {
+    main: './src/index'
+  },
   output: {
     path: __dirname,
     publicPath: '/',
-    filename: 'bundle.js'
+    filename: '[name].js'
   },
   module: {
     loaders: [{
+      test: /\.js$/,
       exclude: /node_modules/,
-      loader: 'babel'
+      loader: 'babel?presets[]=es2015'
     }]
   },
   resolve: {
